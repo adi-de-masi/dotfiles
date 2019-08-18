@@ -65,6 +65,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_typescript_checkers = ['tslint']
 
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
 let mapleader = ","
 
 nmap <leader>y :PBCopy<cr>
@@ -104,6 +107,7 @@ Plug 'fholgado/minibufexpl.vim'
 Plug 'ahw/vim-pbcopy'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'vim-airline/vim-airline'
 
 " Initialize plugin system
 call plug#end()
