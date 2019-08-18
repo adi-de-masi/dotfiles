@@ -61,6 +61,10 @@ alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
 
+# Dotfiles repo
+alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+config config status.showUntrackedFiles no
+
 # Key bindings
 bindkey "^p" history-beginning-search-backward
 bindkey "^[n" history-beginning-search-forward

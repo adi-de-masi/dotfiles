@@ -26,3 +26,4 @@ setenv
 localProxy.sh
 adi_private/
 package-lock.json
+.myconf
