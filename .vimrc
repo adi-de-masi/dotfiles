@@ -17,14 +17,14 @@ set smarttab	" Enable smart-tabs
 set softtabstop=2	" Number of spaces per Tab
  
 set ruler	" Show row and column ruler information
-
-" configuration for Powerline
-set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
+
+" configuration for Powerline
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
+set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
@@ -38,6 +38,13 @@ let @q='1GVG"*y'
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
+endif
+
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Inconsolata\ for\ Powerline:h15
+   endif
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -73,6 +80,13 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
 let mapleader = ","
 
@@ -116,7 +130,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'Lokaltog/powerline'
 
 " Initialize plugin system
 call plug#end()
