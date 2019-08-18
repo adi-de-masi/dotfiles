@@ -18,6 +18,23 @@ set softtabstop=2	" Number of spaces per Tab
  
 set ruler	" Show row and column ruler information
 
+" configuration for Powerline
+set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
+set undolevels=1000	" Number of undo levels
+set backspace=indent,eol,start	" Backspace behaviour
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+" not sure what these do
+set ttymouse=xterm2
+behave xterm
+let @q='1GVG"*y'
+" end not sure
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
@@ -29,18 +46,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
-
-set undolevels=1000	" Number of undo levels
-set backspace=indent,eol,start	" Backspace behaviour
-
-" not sure what these do
-set ttymouse=xterm2
-set encoding=utf-8
-behave xterm
-let @q='1GVG"*y'
-" end not sure
-
-set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 
 " The Silver Searcher
 if executable('ag')
@@ -104,13 +109,14 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'schickling/vim-bufonly'
-Plug 'fholgado/minibufexpl.vim'
 Plug 'ahw/vim-pbcopy'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Initialize plugin system
 call plug#end()
