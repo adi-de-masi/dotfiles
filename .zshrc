@@ -11,7 +11,8 @@ ZSH=$HOME/.oh-my-zsh
 
 #ZSH_THEME="pygmalion"
 #ZSH_THEME="powerline"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="gentoo"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
