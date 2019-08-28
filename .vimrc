@@ -67,17 +67,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_typescript_checkers = ['tslint']
-let g:syntastic_javascript_checkers = ['eslint']
+"" ALE linting
+let g:ale_linters = {'javascript': ['eslint']}
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -120,7 +111,6 @@ endif
 call plug#begin('~/.vim/plugged')
 " On-demand loading
 Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'schickling/vim-bufonly'
 Plug 'ahw/vim-pbcopy'
@@ -131,6 +121,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Lokaltog/powerline'
+Plug 'dense-analysis/ale'
 
 " Initialize plugin system
 call plug#end()
