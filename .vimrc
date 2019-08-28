@@ -120,7 +120,6 @@ endif
 call plug#begin('~/.vim/plugged')
 " On-demand loading
 Plug 'scrooloose/nerdtree'
-" Shorthand notation; fetches https://github.com/scrooloose/syntastic
 Plug 'vim-syntastic/syntastic'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'schickling/vim-bufonly'
