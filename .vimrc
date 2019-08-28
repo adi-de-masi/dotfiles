@@ -121,6 +121,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'Lokaltog/powerline'
+Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 
 " Initialize plugin system
