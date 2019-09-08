@@ -125,6 +125,7 @@ Plug 'Lokaltog/powerline'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'mileszs/ack.vim'
+Plug 'mattn/emmet-vim'
 
 " Initialize plugin system
 call plug#end()
