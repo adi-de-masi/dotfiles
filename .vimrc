@@ -127,5 +127,8 @@ Plug 'dense-analysis/ale'
 Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
 
+" Enables jumping between opening and closing tags
+packadd! matchit
+
 " Initialize plugin system
 call plug#end()
