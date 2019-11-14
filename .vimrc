@@ -126,6 +126,7 @@ Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-surround'
 
 " Enables jumping between opening and closing tags
 packadd! matchit
