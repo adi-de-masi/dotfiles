@@ -36,6 +36,9 @@ behave xterm
 let @q='1GVG"*y'
 " end not sure
 
+" Markdown Preview Plugin Configuration
+source ~/.vimrc.markdown-preview
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
@@ -127,6 +130,10 @@ Plug 'dense-analysis/ale'
 Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
+
+" Markdown Preview Boiler https://github.com/iamcco/markdown-preview.nvim
+" If you have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Enables jumping between opening and closing tags
 packadd! matchit
