@@ -89,6 +89,7 @@ let mapleader = ","
 nmap <leader>y :PBCopy<cr>
 nmap <leader>h :nohlsearch<cr>
 nmap <leader>n :set number!<cr>
+nmap <leader>m :MarkdownPreview<cr>
 nmap <leader>r :set relativenumber!<cr>
 nmap <leader>t :NERDTreeFind<cr>
 nmap <leader>X :%!xmllint --format -<cr>
