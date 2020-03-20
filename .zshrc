@@ -47,7 +47,7 @@ alias nvm="unalias nvm; [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git)
-plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
+plugins=(git colored-man-pages colorize github jira vagrant virtualenv pip python brew osx)
 
 # git aliases
 alias cgs='clear; git status'
@@ -153,3 +153,4 @@ export SDKMAN_DIR="/Users/dea/.sdkman"
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
