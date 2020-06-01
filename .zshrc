@@ -153,4 +153,5 @@ export SDKMAN_DIR="/Users/dea/.sdkman"
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+source $HOME/.cargo/env
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
