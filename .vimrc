@@ -131,6 +131,7 @@ Plug 'dense-analysis/ale'
 Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
+Plug 'evanleck/vim-svelte'
 
 " Markdown Preview Boiler https://github.com/iamcco/markdown-preview.nvim
 " If you have nodejs and yarn

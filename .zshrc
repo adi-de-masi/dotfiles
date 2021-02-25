@@ -91,6 +91,7 @@ export GROOVY_HOME=/usr/local/Cellar/groovy/2.1.1/libexec
 export GRAILS_HOME=/Users/dea/bin/grails/grails-2.2.3
 export PATH=$GRAILS_HOME/bin:$PATH
 export PATH=/Users/dea/bin:$PATH
+export PATH=/Users/dea/Library/Python/3.8/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 #export FELIX_HOME=/Users/dea/panter/src/ent-001/matterhorn
 export MH_HOTDEPLOY=/Users/dea/panter/src/ent-001/matterhorn-configuration/vagrant/share/matterhorn
