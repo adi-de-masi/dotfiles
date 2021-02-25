@@ -7,6 +7,7 @@ target/
 .classpath/
 .metadata
 .env
+.gradle/
 .java-version
 /node_modules
 /typings
