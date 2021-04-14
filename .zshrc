@@ -118,6 +118,7 @@ export HOMEBREW_GITHUB_API_TOKEN=`cat ~/.homebrew/github_token`
 alias vim='/usr/local/bin/mvim -v'
 alias vi='/usr/local/bin/mvim -v'
 alias ll='ls -la'
+alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 set -o vi
 
 #OktaAWSCLI
