@@ -18,8 +18,6 @@ export EDITOR="$(which vim)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
-alias nvm="unalias nvm; [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"; nvm $@"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -86,7 +84,6 @@ export PATH=/Users/dea/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
 export PATH=/Users/dea/Documents/downloads/java/play/activator-1.2.2-minimal:$PATH
 export PATH=/Library/PostgreSQL/9.3/bin:$PATH
-export PATH="$HOME/.jenv/shims:$PATH"
 export GROOVY_HOME=/usr/local/Cellar/groovy/2.1.1/libexec
 export GRAILS_HOME=/Users/dea/bin/grails/grails-2.2.3
 export PATH=$GRAILS_HOME/bin:$PATH
@@ -152,6 +149,7 @@ export SDKMAN_DIR="/Users/dea/.sdkman"
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-source $HOME/.cargo/env
+#source $HOME/.cargo/env
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
