@@ -30,6 +30,9 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
+" Auto-Save
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
 " not sure what these do
 set ttymouse=xterm2
 behave xterm
@@ -132,6 +135,9 @@ Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
 Plug 'evanleck/vim-svelte'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug '907th/vim-auto-save'
 
 " Markdown Preview Boiler https://github.com/iamcco/markdown-preview.nvim
 " If you have nodejs and yarn
