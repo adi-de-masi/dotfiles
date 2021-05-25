@@ -111,7 +111,6 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Ho
 #export MAVEN_OPTS="-Xms512m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=2048m -Djavax.net.ssl.trustStore=/Users/dea/.m2/panterTrust.jks"
 export IDEA_VM_OPTIONS=/Users/dea/Documents/assets/intellij/idea.vmoptions
 export FLYWAY_HOME=/Users/dea/Documents/source/flyway
-export HOMEBREW_GITHUB_API_TOKEN=`cat ~/.homebrew/github_token`
 alias vim='/usr/local/bin/mvim -v'
 alias vi='/usr/local/bin/mvim -v'
 alias ll='ls -la'
