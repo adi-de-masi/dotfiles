@@ -10,15 +10,6 @@ ZSH_THEME="evan"
 
 export EDITOR="$(which vim)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git)
-plugins=(git colored-man-pages colorize github jira vagrant virtualenv pip python brew osx)
-
 # git aliases
 alias cgs='clear; git status'
 alias ga='git add'
@@ -44,8 +35,6 @@ bindkey "^p" history-beginning-search-backward
 bindkey "^[n" history-beginning-search-forward
 bindkey -M viins '^r' history-incremental-pattern-search-backward
 bindkey -M vicmd '^r' history-incremental-pattern-search-backward
-
-source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/opt/local/bin:/opt/local/sbin:/Users/dea/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/dea/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:/Users/dea/bin:/opt/apache/apache-maven-3.0.3//bin:/Users/dea/Documents/downloads/java/play-2.1.1
@@ -74,6 +63,7 @@ export ANDROID_HOME=/Users/dea/Library/Android/sdk
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
 export IDEA_VM_OPTIONS=/Users/dea/Documents/assets/intellij/idea.vmoptions
 export FLYWAY_HOME=/Users/dea/Documents/source/flyway
+export NVM_LAZY_LOAD=true
 alias vim='/usr/local/bin/mvim -v'
 alias vi='/usr/local/bin/mvim -v'
 alias ll='ls -la'
@@ -83,6 +73,12 @@ set -o vi
 # HISTIGNORESPACE prevents the current line from being saved if it begins with a space.
 setopt histignorespace
 
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+#plugins=(git)
+plugins=(git colored-man-pages colorize github jira vagrant virtualenv pip python brew osx zsh-nvm)
+
 #OktaAWSCLI
 if [[ -f "$HOME/.okta/bash_functions" ]]; then
     . "$HOME/.okta/bash_functions"
@@ -90,8 +86,6 @@ fi
 if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then
     PATH="$HOME/.okta/bin:$PATH"
 fi
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Try to find jenv, if it's not on the path
 export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
@@ -108,3 +102,6 @@ if type jenv > /dev/null; then
         jenv $@
     }
 fi
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/oh-my-zsh.sh
