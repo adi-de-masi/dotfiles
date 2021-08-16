@@ -97,30 +97,21 @@ if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then
     PATH="$HOME/.okta/bin:$PATH"
 fi
 
-###-tns-completion-start-###
-if [ -f /Users/dea/.tnsrc ]; then 
-    source /Users/dea/.tnsrc 
-fi
-###-tns-completion-end-###
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-## don't cd automatically
-#unsetopt AUTO_CD
-#[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-setopt histignorespace
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/dea/.sdkman"
-[[ -s "/Users/dea/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dea/.sdkman/bin/sdkman-init.sh"
-
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-#source $HOME/.cargo/env
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+
+# Try to find jenv, if it's not on the path
+export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
+if ! type jenv > /dev/null && [ -f "${JENV_ROOT}/bin/jenv" ]; then
+    export PATH="${JENV_ROOT}/bin:${PATH}"
+fi
+
+# Lazy load jenv
+if type jenv > /dev/null; then
+    export PATH="${JENV_ROOT}/bin:${JENV_ROOT}/shims:${PATH}"
+    function jenv() {
+        unset -f jenv
+        eval "$(command jenv init -)"
+        jenv $@
+    }
+fi
