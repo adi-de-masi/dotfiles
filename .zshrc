@@ -19,28 +19,6 @@ export EDITOR="$(which vim)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -90,10 +68,6 @@ export PATH=$GRAILS_HOME/bin:$PATH
 export PATH=/Users/dea/bin:$PATH
 export PATH=/Users/dea/Library/Python/3.8/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
-#export FELIX_HOME=/Users/dea/panter/src/ent-001/matterhorn
-export MH_HOTDEPLOY=/Users/dea/panter/src/ent-001/matterhorn-configuration/vagrant/share/matterhorn
-export KARAF_ROOT=/Users/dea/panter/src/ent-001/matterhorn/build
-export GLASSFISH_AUTODEPLOY=/Users/dea/Documents/downloads/java/glassfish4/glassfish/domains/domain1/autodeploy
 export M2_HOME=/opt/apache-maven-3.5.0/
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2
@@ -103,12 +77,7 @@ export RSENSE_HOME=/Users/dea/bin/vim-rsense-0.3
 export TOMEE_HOME=/opt/apache/apache-tomee-plus-1.6.0
 export TESSDATA_PREFIX=/usr/local/Cellar/tesseract/3.04.01_2/share/ 
 export ANDROID_HOME=/Users/dea/Library/Android/sdk
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home
-#export JAVA_HOME="/Library/Java/1.6.0_37-b06-434.jdk/Contents/Home"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
-#export ANDROID_HOME=/Users/dea/Documents/downloads/java/adt-bundle-mac-x86_64-20130219/sdk
-#export MAVEN_OPTS="-Xms512m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=2048m -Djavax.net.ssl.trustStore=/Users/dea/.m2/panterTrust.jks"
 export IDEA_VM_OPTIONS=/Users/dea/Documents/assets/intellij/idea.vmoptions
 export FLYWAY_HOME=/Users/dea/Documents/source/flyway
 alias vim='/usr/local/bin/mvim -v'
@@ -116,6 +85,9 @@ alias vi='/usr/local/bin/mvim -v'
 alias ll='ls -la'
 alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 set -o vi
+
+# HISTIGNORESPACE prevents the current line from being saved if it begins with a space.
+setopt histignorespace
 
 #OktaAWSCLI
 if [[ -f "$HOME/.okta/bash_functions" ]]; then
