@@ -1,7 +1,5 @@
 "" General
 set number	" Show line numbers
-set linebreak	" Break lines at word (requires Wrap lines)
-set textwidth=100	" Line wrap (number of cols)
 set showmatch	" Highlight matching brace
 set visualbell	" Use visual bell (no beeping)
  
@@ -27,14 +25,12 @@ let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
 set termencoding=utf-8
 
 " Auto-Save
 let g:auto_save = 1  " enable AutoSave on Vim startup
 
 " not sure what these do
-set ttymouse=xterm2
 behave xterm
 let @q='1GVG"*y'
 " end not sure
@@ -100,6 +96,7 @@ nmap <leader>x :%!python -m json.tool<cr>
 nmap <leader><Tab> :bn<cr>
 nmap <leader><S-Tab> :bp<cr>
 nmap <leader>s :w<cr>
+
 "" Plugins
 " Use vim-plug. https://github.com/junegunn/vim-plug
 " Install if not already there:
@@ -138,7 +135,6 @@ Plug 'evanleck/vim-svelte'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug '907th/vim-auto-save'
-
 " Markdown Preview Boiler https://github.com/iamcco/markdown-preview.nvim
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }

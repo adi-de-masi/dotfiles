@@ -60,12 +60,9 @@ export RSENSE_HOME=/Users/dea/bin/vim-rsense-0.3
 export TOMEE_HOME=/opt/apache/apache-tomee-plus-1.6.0
 export TESSDATA_PREFIX=/usr/local/Cellar/tesseract/3.04.01_2/share/ 
 export ANDROID_HOME=/Users/dea/Library/Android/sdk
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
 export IDEA_VM_OPTIONS=/Users/dea/Documents/assets/intellij/idea.vmoptions
 export FLYWAY_HOME=/Users/dea/Documents/source/flyway
-export NVM_LAZY_LOAD=true
-alias vim='/usr/local/bin/mvim -v'
-alias vi='/usr/local/bin/mvim -v'
 alias ll='ls -la'
 alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 set -o vi
@@ -76,10 +73,8 @@ setopt histignorespace
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git)
-plugins=(git colored-man-pages colorize github jira vagrant virtualenv pip python brew osx zsh-nvm)
+plugins=(git brew tmux zsh-vi-mode)
 
-#OktaAWSCLI
 if [[ -f "$HOME/.okta/bash_functions" ]]; then
     . "$HOME/.okta/bash_functions"
 fi
@@ -87,21 +82,20 @@ if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then
     PATH="$HOME/.okta/bin:$PATH"
 fi
 
-# Try to find jenv, if it's not on the path
-export JENV_ROOT="${JENV_ROOT:=${HOME}/.jenv}"
-if ! type jenv > /dev/null && [ -f "${JENV_ROOT}/bin/jenv" ]; then
-    export PATH="${JENV_ROOT}/bin:${PATH}"
-fi
-
-# Lazy load jenv
-if type jenv > /dev/null; then
-    export PATH="${JENV_ROOT}/bin:${JENV_ROOT}/shims:${PATH}"
-    function jenv() {
-        unset -f jenv
-        eval "$(command jenv init -)"
-        jenv $@
-    }
-fi
-
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
+
+function aws_login() {
+  login_cmd="python3 ~/bin/inject_aws_keys.py $1"
+  eval "\$($login_cmd)"
+}
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
