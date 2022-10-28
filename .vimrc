@@ -75,6 +75,7 @@ let g:ale_linters = {'javascript': ['eslint']}
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 " air-line
 let g:airline_powerline_fonts = 1
