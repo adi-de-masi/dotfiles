@@ -1,3 +1,4 @@
 source ~/.vimrc
 set surround
 map <leader>e <Action>(Javascript.Linters.EsLint.Fix)
+map <leader>d <Action>(ToggleDistractionFreeMode)
