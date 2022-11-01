@@ -47,6 +47,7 @@ export PATH=/Users/dea/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
 export PATH=/Users/dea/Documents/downloads/java/play/activator-1.2.2-minimal:$PATH
 export PATH=/Library/PostgreSQL/9.3/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 export GROOVY_HOME=/usr/local/Cellar/groovy/2.1.1/libexec
 export GRAILS_HOME=/Users/dea/bin/grails/grails-2.2.3
 export PATH=$GRAILS_HOME/bin:$PATH
