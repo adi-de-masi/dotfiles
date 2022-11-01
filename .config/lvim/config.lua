@@ -20,7 +20,9 @@ lvim.leader = ","
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<M-d>"] = ":lua require'jester'.debug()<cr>"
--- lvim.keys.normal_mode["<Leader>-<Tab>"] = ",bn"
+lvim.keys.normal_mode["<M-r>"] = ":lua require'jester'.run()<cr>"
+lvim.keys.normal_mode[",<Tab>"] = ":bn<cr>"
+lvim.keys.normal_mode[",<S-Tab>"] = ":bp<cr>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -189,7 +191,8 @@ lvim.plugins = {
 --   end,
 -- })
 --  
---  Adi's test
+--
+--  Adi's customisations
 lvim.builtin.dap.active = true
 local dap = require('dap')
 dap.adapters.node2 = {
@@ -216,3 +219,5 @@ dap.configurations.javascript = {
     processId = require'dap.utils'.pick_process,
   },
 }
+
+require'lspconfig'.rust_analyzer.setup{}
