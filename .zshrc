@@ -65,6 +65,10 @@ export ANDROID_HOME=/Users/dea/Library/Android/sdk
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
 export IDEA_VM_OPTIONS=/Users/dea/Documents/assets/intellij/idea.vmoptions
 export FLYWAY_HOME=/Users/dea/Documents/source/flyway
+export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_ALT_C_COMMAND='fd --type d'
 alias ll='ls -la'
 alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 set -o vi
@@ -101,3 +105,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
