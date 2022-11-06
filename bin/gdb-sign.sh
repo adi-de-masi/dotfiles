@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # This script is copied from https://github.com/llvm/llvm-project/blob/master/lldb/scripts/macos-setup-codesign.sh
+# https://sourceware.org/gdb/wiki/PermissionsDarwin
 
 CERT="gdb-cert"
 
