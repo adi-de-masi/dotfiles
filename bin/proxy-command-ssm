@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+# ProxyCommand script to be used with AWS SSM.
+
+# Strict mode
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# Error logging
+trap 'echo "Aborting due to errexit on line $LINENO. Exit code: $?" >&2' ERR
+
+# Set IFS
+IFS=$'\n\t'
+
+# Global variables
+# CHANGE THE VALUE IN LINE BELOW (if needed)!
+PROFILE="aws_hg-ls-prod.ReadOnlyPermissionSet"
+AVAILABILITY_ZONE=$(aws ec2 describe-instances \
+  --filters "Name=tag:Name,Values=$1" \
+  --output text \
+  --profile ${PROFILE} \
+  --query "Reservations[].Instances[].Placement.AvailabilityZone")
+INSTANCE_ID=$(aws ec2 describe-instances \
+  --filters "Name=tag:Name,Values=$1" \
+  --output text \
+  --profile ${PROFILE} \
+  --query "Reservations[].Instances[].InstanceId")
+
+# Push SSH key to target EC2
+aws ec2-instance-connect send-ssh-public-key \
+  --availability-zone ${AVAILABILITY_ZONE} \
+  --instance-id ${INSTANCE_ID} \
+  --instance-os-user $3 \
+  --profile ${PROFILE} \
+  --ssh-public-key file://~/.ssh/id_rsa.pub
+
+# Open SSM session
+aws ssm start-session \
+  --document-name AWS-StartSSHSession \
+  --parameters "portNumber=$2" \
+  --profile ${PROFILE} \
+  --target ${INSTANCE_ID}
