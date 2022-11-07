@@ -220,4 +220,24 @@ dap.configurations.javascript = {
   },
 }
 
-require'lspconfig'.rust_analyzer.setup{}
+require 'lspconfig'.rust_analyzer.setup {}
+
+-- https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-%28gdb-via--vscode-cpptools%29
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = '/Users/dea/.vscode/extensions/ms-vscode.cpptools-1.12.4/debugAdapters/bin/OpenDebugAD7'
+}
+
+dap.configurations.rust = {
+  {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
+  },
+}
