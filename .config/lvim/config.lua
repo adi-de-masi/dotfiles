@@ -18,6 +18,7 @@ lvim.colorscheme = "tokyonight"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = ","
 -- add your own keymapping
+lvim.keys.normal_mode[",j"] = ":lua vim.diagnostic.open_float(0,{scope='line'})<cr>"
 lvim.keys.normal_mode["<M-d>"] = ":lua require'jester'.debug()<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":lua require'jester'.run()<cr>"
 lvim.keys.normal_mode[",<Tab>"] = ":bn<cr>"
