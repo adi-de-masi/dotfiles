@@ -23,10 +23,7 @@ lvim.keys.normal_mode["<M-d>"] = ":lua require'jester'.debug()<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":lua require'jester'.run()<cr>"
 lvim.keys.normal_mode[",<Tab>"] = ":bn<cr>"
 lvim.keys.normal_mode[",<S-Tab>"] = ":bp<cr>"
-lvim.keys.normal_mode["<C-l>"] = ":r !(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R<cr>"
-lvim.keys.normal_mode["<C-h>"] = ":r !(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L<cr>"
-lvim.keys.normal_mode["<C-k>"] = ":r !(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U<cr>"
-lvim.keys.normal_mode["<C-j>"] = ":r !(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D<cr>"
+
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -172,8 +169,21 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { "David-Kunz/jester" }
-}
+  { "David-Kunz/jester" },
+  { 'alexghergh/nvim-tmux-navigation', config = function()
+        require'nvim-tmux-navigation'.setup {
+            disable_when_zoomed = true, -- defaults to false
+            keybindings = {
+                left = "<C-h>",
+                down = "<C-j>",
+                up = "<C-k>",
+                right = "<C-l>",
+                last_active = "<C-\\>",
+                next = "<C-Space>",
+            }
+        }
+    end
+}}
 -- lvim.plugins = {
 --     {
 --       "folke/trouble.nvim",
