@@ -11,7 +11,7 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -23,6 +23,9 @@ lvim.keys.normal_mode["<M-d>"] = ":lua require'jester'.debug()<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":lua require'jester'.run()<cr>"
 lvim.keys.normal_mode[",<Tab>"] = ":bn<cr>"
 lvim.keys.normal_mode[",<S-Tab>"] = ":bp<cr>"
+lvim.keys.normal_mode[",<S-o>"] = ":%bd|e#<cr>"
+lvim.keys.normal_mode[",y"] = "\"*y"
+
 
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
