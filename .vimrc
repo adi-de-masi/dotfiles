@@ -109,7 +109,7 @@ nmap <leader>m :MarkdownPreview<cr>
 nmap <leader>r :set relativenumber!<cr>
 nmap <leader>t :NERDTreeFind<cr>
 nmap <leader>X :%!xmllint --format -<cr>
-nmap <leader>x :%!python -m json.tool<cr>
+nmap <leader>x :%!jq .<cr>
 nmap <leader><Tab> :bn<cr>
 nmap <leader><S-Tab> :bp<cr>
 nmap <leader>s :w<cr>
