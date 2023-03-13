@@ -11,7 +11,8 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
-lvim.colorscheme = "lunar"
+--lvim.colorscheme = "lunar"
+lvim.colorscheme = "desert"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -24,7 +25,9 @@ lvim.keys.normal_mode["<M-r>"] = ":lua require'jester'.run()<cr>"
 lvim.keys.normal_mode[",<Tab>"] = ":bn<cr>"
 lvim.keys.normal_mode[",<S-Tab>"] = ":bp<cr>"
 lvim.keys.normal_mode[",<S-o>"] = ":%bd|e#<cr>"
-lvim.keys.normal_mode[",y"] = "\"*y"
+lvim.keys.normal_mode[",x"] = ":%!jq .<cr>"
+lvim.keys.normal_mode[",m"] = ":MarkdownPreview<cr>"
+lvim.keys.visual_mode[",y"] = "\"*y"
 
 
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
@@ -174,19 +177,36 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.plugins = {
   { "David-Kunz/jester" },
   { 'alexghergh/nvim-tmux-navigation', config = function()
-        require'nvim-tmux-navigation'.setup {
-            disable_when_zoomed = true, -- defaults to false
-            keybindings = {
-                left = "<C-h>",
-                down = "<C-j>",
-                up = "<C-k>",
-                right = "<C-l>",
-                last_active = "<C-\\>",
-                next = "<C-Space>",
-            }
-        }
+    require 'nvim-tmux-navigation'.setup {
+      disable_when_zoomed = true, -- defaults to false
+      keybindings = {
+        left = "<C-h>",
+        down = "<C-j>",
+        up = "<C-k>",
+        right = "<C-l>",
+        last_active = "<C-\\>",
+        next = "<C-Space>",
+      }
+    }
+  end
+  },
+
+  { "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  },
+
+  {
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
-}}
+  }
+}
 -- lvim.plugins = {
 --     {
 --       "folke/trouble.nvim",
@@ -210,6 +230,11 @@ lvim.plugins = {
 --
 --
 --  Adi's customisations
+--
+-- Snippets
+require("luasnip/loaders/from_vscode").load { paths = { "~/.config/lvim/snippets/my-snippets" } }
+
+-- DAP
 lvim.builtin.dap.active = true
 local dap = require('dap')
 dap.adapters.node2 = {
@@ -241,7 +266,7 @@ require 'lspconfig'.rust_analyzer.setup {}
 
 -- Rust
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#ccrust-via-lldb-vscode
--- brew install llvm 
+-- brew install llvm
 
 dap.adapters.lldb = {
   type = 'executable',

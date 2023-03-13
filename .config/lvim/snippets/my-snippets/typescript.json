@@ -1,0 +1,18 @@
+{
+  "jest it": {
+    "prefix": "it",
+    "body": [ 
+      "it('${1:description}', async () => {",
+      "\t${2}",
+      "});"
+    ]
+  },
+  "jest describe": {
+    "prefix": "descr",
+    "body": [ 
+      "describe('${1:description}', async () => {",
+      "\t${2}",
+      "});"
+    ]
+  }
+}
