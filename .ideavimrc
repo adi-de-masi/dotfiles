@@ -1,4 +1,6 @@
 source ~/.vimrc
+Plug 'easymotion/vim-easymotion'
 set surround
+set easymotion
 map <leader>e <Action>(Javascript.Linters.EsLint.Fix)
 map <leader>d <Action>(ToggleDistractionFreeMode)
