@@ -92,6 +92,7 @@ fi
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function aws_login() {
   login_cmd="python3 ~/bin/inject_aws_keys.py $1"
@@ -101,7 +102,6 @@ function aws_login() {
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
