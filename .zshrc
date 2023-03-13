@@ -81,7 +81,7 @@ setopt histignorespace
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew tmux zsh-vi-mode)
+plugins=(git brew tmux)
 
 if [[ -f "$HOME/.okta/bash_functions" ]]; then
     . "$HOME/.okta/bash_functions"
