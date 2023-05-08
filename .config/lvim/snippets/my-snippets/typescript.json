@@ -10,9 +10,29 @@
   "jest describe": {
     "prefix": "descr",
     "body": [ 
-      "describe('${1:description}', async () => {",
+      "describe('${1:description}', () => {",
       "\t${2}",
       "});"
     ]
+  },
+  "jest beforeEach": {
+    "prefix": "bfre",
+    "body": [ 
+      "beforeEach(() => {",
+      "\t${1}",
+      "});"
+    ]
+  },
+  "jest beforeAll": {
+    "prefix": "bfra",
+    "body": [ 
+      "beforeAll(() => {",
+      "\t${1}",
+      "});"
+    ]
+  },
+  "JSON stringify": {
+    "prefix": "jstr",
+    "body": ["JSON.stringify(${1}, null, 2)"]
   }
 }
