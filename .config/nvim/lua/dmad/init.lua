@@ -1,5 +1,6 @@
 require("dmad.set")
 require("dmad.remap")
+require("dmad.packer")
 
 -- DO NOT INCLUDE THIS
 vim.opt.rtp:append("~/personal/streamer-tools")
