@@ -6,7 +6,8 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="evan"
+#ZSH_THEME="evan"
+ZSH_THEME="robbyrussell"
 
 export EDITOR="$(which vim)"
 
@@ -39,7 +40,7 @@ bindkey -M viins '^r' history-incremental-pattern-search-backward
 bindkey -M vicmd '^r' history-incremental-pattern-search-backward
 
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/Users/dea/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/dea/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:/Users/dea/bin:/opt/apache/apache-maven-3.0.3//bin:/Users/dea/Documents/downloads/java/play-2.1.1
+export PATH=/opt/local/bin:/opt/local/sbin:/Users/dea/bin:/Users/dea/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/dea/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:/Users/dea/bin:/opt/apache/apache-maven-3.0.3//bin:/Users/dea/Documents/downloads/java/play-2.1.1
 export NODE_PATH="/usr/local/lib/node_modules"
 export PATH=$NODE_PATH:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
@@ -61,7 +62,7 @@ export M2_REPO=~/.m2/repository
 export EDITOR=/usr/bin/edit
 export RSENSE_HOME=/Users/dea/bin/vim-rsense-0.3
 export TOMEE_HOME=/opt/apache/apache-tomee-plus-1.6.0
-export TESSDATA_PREFIX=/usr/local/Cellar/tesseract/3.04.01_2/share/ 
+export TESSDATA_PREFIX=/usr/local/Cellar/tesseract/3.04.01_2/share/
 export ANDROID_HOME=/Users/dea/Library/Android/sdk
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
 export IDEA_VM_OPTIONS=/Users/dea/Documents/assets/intellij/idea.vmoptions

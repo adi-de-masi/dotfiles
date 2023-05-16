@@ -14,6 +14,7 @@ lvim.format_on_save = false
 --lvim.colorscheme = "lunar"
 --lvim.colorscheme = "desert"
 lvim.colorscheme = "tokyonight-night"
+lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -28,6 +29,19 @@ lvim.keys.normal_mode[",<S-Tab>"] = ":bp<cr>"
 lvim.keys.normal_mode[",<S-o>"] = ":%bd|e#<cr>"
 lvim.keys.normal_mode[",x"] = ":%!jq .<cr>"
 lvim.keys.normal_mode[",m"] = ":MarkdownPreview<cr>"
+lvim.keys.normal_mode[",r"] = ":lua vim.opt.relativenumber = false<cr>"
+lvim.keys.normal_mode[",R"] = ":lua vim.opt.relativenumber = true<cr>"
+lvim.keys.normal_mode["<leader>hh"] = ":lua require'harpoon.mark'.add_file()<cr>"
+lvim.keys.normal_mode["<leader>hd"] = ":lua require'harpoon.mark'.clear_all()<cr>"
+lvim.keys.normal_mode["<leader>hm"] = ":lua require'harpoon.ui'.toggle_quick_menu()<cr>"
+lvim.keys.normal_mode["<leader>hz"] = ":lua require'harpoon.ui'.nav_file(1)<cr>"
+lvim.keys.normal_mode["<leader>hx"] = ":lua require'harpoon.ui'.nav_file(2)<cr>"
+lvim.keys.normal_mode["<leader>hc"] = ":lua require'harpoon.ui'.nav_file(3)<cr>"
+lvim.keys.normal_mode["<leader>hv"] = ":lua require'harpoon.ui'.nav_file(4)<cr>"
+lvim.keys.normal_mode["<leader>hn"] = ":lua require'harpoon.ui'.nav_next()<cr>"
+lvim.keys.normal_mode["<leader>hp"] = ":lua require'harpoon.ui'.nav_prev()<cr>"
+lvim.keys.normal_mode["<leader>zp"] = ":Copilot panel<cr>"
+
 lvim.keys.visual_mode[",y"] = "\"*y"
 
 
@@ -98,6 +112,8 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
+
+--vim.opt.relativenumber = true -- set relative numbered lines
 
 -- generic LSP settings
 
@@ -177,22 +193,25 @@ lvim.builtin.treesitter.highlight.enable = true
 -- Additional Plugins
 lvim.plugins = {
   { "David-Kunz/jester" },
-  { 'alexghergh/nvim-tmux-navigation', config = function()
-    require 'nvim-tmux-navigation'.setup {
-      disable_when_zoomed = true, -- defaults to false
-      keybindings = {
-        left = "<C-h>",
-        down = "<C-j>",
-        up = "<C-k>",
-        right = "<C-l>",
-        last_active = "<C-\\>",
-        next = "<C-Space>",
+  {
+    'alexghergh/nvim-tmux-navigation',
+    config = function()
+      require 'nvim-tmux-navigation'.setup {
+        disable_when_zoomed = true, -- defaults to false
+        keybindings = {
+          left = "<C-h>",
+          down = "<C-j>",
+          up = "<C-k>",
+          right = "<C-l>",
+          last_active = "<C-\\>",
+          next = "<C-Space>",
+        }
       }
-    }
-  end
+    end
   },
 
-  { "iamcco/markdown-preview.nvim",
+  {
+    "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
     init = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
@@ -205,6 +224,18 @@ lvim.plugins = {
         -- Configuration here, or leave empty to use defaults
       })
     end
+  },
+
+  {
+    "nvim-lua/plenary.nvim"
+  },
+
+  {
+    "ThePrimeagen/harpoon"
+  },
+
+  {
+    "github/copilot.vim"
   }
 }
 -- lvim.plugins = {
@@ -305,4 +336,3 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
-
