@@ -31,15 +31,15 @@ lvim.keys.normal_mode[",x"] = ":%!jq .<cr>"
 lvim.keys.normal_mode[",m"] = ":MarkdownPreview<cr>"
 lvim.keys.normal_mode[",r"] = ":lua vim.opt.relativenumber = false<cr>"
 lvim.keys.normal_mode[",R"] = ":lua vim.opt.relativenumber = true<cr>"
-lvim.keys.normal_mode["<leader>hh"] = ":lua require'harpoon.mark'.add_file()<cr>"
-lvim.keys.normal_mode["<leader>hd"] = ":lua require'harpoon.mark'.clear_all()<cr>"
-lvim.keys.normal_mode["<leader>hm"] = ":lua require'harpoon.ui'.toggle_quick_menu()<cr>"
-lvim.keys.normal_mode["<leader>hz"] = ":lua require'harpoon.ui'.nav_file(1)<cr>"
-lvim.keys.normal_mode["<leader>hx"] = ":lua require'harpoon.ui'.nav_file(2)<cr>"
-lvim.keys.normal_mode["<leader>hc"] = ":lua require'harpoon.ui'.nav_file(3)<cr>"
-lvim.keys.normal_mode["<leader>hv"] = ":lua require'harpoon.ui'.nav_file(4)<cr>"
-lvim.keys.normal_mode["<leader>hn"] = ":lua require'harpoon.ui'.nav_next()<cr>"
-lvim.keys.normal_mode["<leader>hp"] = ":lua require'harpoon.ui'.nav_prev()<cr>"
+lvim.keys.normal_mode["<leader>aa"] = ":lua require'harpoon.mark'.add_file()<cr>"
+lvim.keys.normal_mode["<leader>ad"] = ":lua require'harpoon.mark'.clear_all()<cr>"
+lvim.keys.normal_mode["<leader>a"] = ":lua require'harpoon.ui'.toggle_quick_menu()<cr>"
+lvim.keys.normal_mode["<leader>aj"] = ":lua require'harpoon.ui'.nav_file(1)<cr>"
+lvim.keys.normal_mode["<leader>ak"] = ":lua require'harpoon.ui'.nav_file(2)<cr>"
+lvim.keys.normal_mode["<leader>al"] = ":lua require'harpoon.ui'.nav_file(3)<cr>"
+lvim.keys.normal_mode["<leader>a;"] = ":lua require'harpoon.ui'.nav_file(4)<cr>"
+lvim.keys.normal_mode["<leader>an"] = ":lua require'harpoon.ui'.nav_next()<cr>"
+lvim.keys.normal_mode["<leader>ap"] = ":lua require'harpoon.ui'.nav_prev()<cr>"
 lvim.keys.normal_mode["<leader>zp"] = ":Copilot panel<cr>"
 
 lvim.keys.visual_mode[",y"] = "\"*y"
@@ -210,11 +210,10 @@ lvim.plugins = {
     end
   },
 
-  {
-    "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
-    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
+  { "iamcco/markdown-preview.nvim", 
+    build = "cd app && npm install", 
+    init = function() vim.g.mkdp_filetypes = { "markdown" } end, 
+    ft = { "markdown" }, 
   },
 
   {
@@ -231,12 +230,18 @@ lvim.plugins = {
   },
 
   {
-    "ThePrimeagen/harpoon"
+    "ThePrimeagen/harpoon",
+    init = function() 
+      require("harpoon").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
   },
 
   {
     "github/copilot.vim"
-  }
+  },
+  { "lunarvim/colorschemes" }
 }
 -- lvim.plugins = {
 --     {
