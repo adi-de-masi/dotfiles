@@ -6,6 +6,6 @@ else
 fi
 CACHE_BUSTER=$(($RANDOM % 1000000))
 URL="$LISTINGS_API_URL/$1?$CACHE_BUSTER"
-curl $URL --silent -H "Cache-Control: no-cache" | jq 
+#curl $URL --silent -H "Cache-Control: no-cache" | jq
 #curl $URL --silent -H "Cache-Control: no-cache" | jq '.listing.id, .listingType.type'
-#curl $URL --silent -H "Cache-Control: no-cache" | jq '.listing.id, .listing.externalIds.propertyReferenceId, .listing.meta.createdAt, .listing.valueAddedServices.bundle, .listingType'
+curl $URL --silent -H "Cache-Control: no-cache" | jq '.listing.id, .listing.externalIds.propertyReferenceId, .listing.meta.createdAt, .listing.valueAddedServices.bundle, .listingType'
