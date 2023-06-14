@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+current=$(yarn --version)
+if [[ $? -eq 127 ]]
+then
+  npm install -g yarn
+elif [[ $current == *"stable"* ]]
+then
+  corepack prepare yarn@1.3.2 --activate
+else
+  corepack prepare yarn@latest --activate
+fi
