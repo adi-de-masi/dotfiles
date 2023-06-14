@@ -22,7 +22,7 @@ lvim.transparent_window = true
 lvim.leader = ","
 -- add your own keymapping
 lvim.keys.normal_mode[",j"] = ":lua vim.diagnostic.open_float(0,{scope='line'})<cr>"
-lvim.keys.normal_mode["<M-d>"] = ":lua require'jester'.debug()<cr>"
+lvim.keys.normal_mode[",dj"] = ":lua require'jester'.debug()<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":lua require'jester'.run()<cr>"
 lvim.keys.normal_mode[",<Tab>"] = ":bn<cr>"
 lvim.keys.normal_mode[",<S-Tab>"] = ":bp<cr>"
@@ -30,6 +30,7 @@ lvim.keys.normal_mode[",<S-o>"] = ":%bd|e#<cr>"
 lvim.keys.normal_mode[",x"] = ":%!jq .<cr>"
 lvim.keys.normal_mode[",m"] = ":MarkdownPreview<cr>"
 lvim.keys.normal_mode[",r"] = ":lua vim.opt.relativenumber = not (vim.opt.relativenumber:get())<cr>"
+lvim.keys.normal_mode[",sr"] = ":Telescope resume<cr>"
 lvim.keys.normal_mode["<leader>aa"] = ":lua require'harpoon.mark'.add_file()<cr>"
 lvim.keys.normal_mode["<leader>ad"] = ":lua require'harpoon.mark'.clear_all()<cr>"
 lvim.keys.normal_mode["<leader>am"] = ":lua require'harpoon.ui'.toggle_quick_menu()<cr>"
@@ -74,16 +75,16 @@ lvim.keys.visual_mode[",y"] = "\"*y"
 -- lvim.builtin.theme.options.style = "storm"
 
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -188,6 +189,20 @@ lvim.builtin.treesitter.highlight.enable = true
 --     filetypes = { "javascript", "python" },
 --   },
 -- }
+--
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "eslint", filetypes = { "typescript", "typescriptreact" } }
+}
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "prettier",
+    filetypes = { "typescript", "typescriptreact" },
+  },
+}
 
 -- Additional Plugins
 lvim.plugins = {
@@ -203,16 +218,16 @@ lvim.plugins = {
           up = "<C-k>",
           right = "<C-l>",
           last_active = "<C-\\>",
-          next = "<C-Space>",
         }
       }
     end
   },
 
-  { "iamcco/markdown-preview.nvim", 
-    build = "cd app && npm install", 
-    init = function() vim.g.mkdp_filetypes = { "markdown" } end, 
-    ft = { "markdown" }, 
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
   },
 
   {
@@ -230,7 +245,7 @@ lvim.plugins = {
 
   {
     "ThePrimeagen/harpoon",
-    init = function() 
+    init = function()
       require("harpoon").setup({
         -- Configuration here, or leave empty to use defaults
       })
@@ -238,105 +253,36 @@ lvim.plugins = {
   },
 
   {
-    "github/copilot.vim"
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
   },
-  { "lunarvim/colorschemes" }
-}
--- lvim.plugins = {
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.json", "*.jsonc" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
---   end,
--- })
---
---
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  },
+
+  { "lunarvim/colorschemes" },
+
+  {
+    "kwkarlwang/bufresize.nvim",
+    config = function()
+      require("bufresize").setup()
+    end
+  },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+}
+
 --  Adi's customisations
 --
 -- Snippets
 require("luasnip/loaders/from_vscode").load { paths = { "~/.config/lvim/snippets/my-snippets" } }
-
--- DAP
-lvim.builtin.dap.active = true
-local dap = require('dap')
-dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  args = { os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
-}
-dap.configurations.javascript = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach to process',
-    type = 'node2',
-    request = 'attach',
-    processId = require 'dap.utils'.pick_process,
-  },
-}
-
-require 'lspconfig'.rust_analyzer.setup {}
-
--- Rust
--- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#ccrust-via-lldb-vscode
--- brew install llvm
-
-dap.adapters.lldb = {
-  type = 'executable',
-  command = '/usr/local/opt/llvm/bin/lldb-vscode', -- brew install llvm
-  name = 'lldb'
-}
-
-dap.configurations.cpp = {
-  {
-    name = 'Launch',
-    type = 'lldb',
-    request = 'launch',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
-
-    -- 💀
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    -- runInTerminal = false,
-  },
-}
-
--- If you want to use this for Rust and C, add something like this:
-
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp

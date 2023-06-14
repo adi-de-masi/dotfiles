@@ -73,6 +73,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_ALT_C_COMMAND='fd --type d'
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export AWS_PROFILE="adi-privat"
 alias ll='ls -la'
 alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 set -o vi
@@ -83,7 +84,7 @@ setopt histignorespace
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew tmux)
+plugins=(git brew tmux aws fzf)
 
 if [[ -f "$HOME/.okta/bash_functions" ]]; then
     . "$HOME/.okta/bash_functions"
@@ -99,7 +100,6 @@ function aws_login() {
   login_cmd="python3 ~/bin/inject_aws_keys.py $1"
   eval "\$($login_cmd)"
 }
-
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
