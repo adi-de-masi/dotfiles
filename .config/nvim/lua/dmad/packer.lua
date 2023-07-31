@@ -67,11 +67,25 @@ return require('packer').startup(function(use)
     	  {'rafamadriz/friendly-snippets'},
       }
   }
+  use { 'alexghergh/nvim-tmux-navigation', config = function()
+        require'nvim-tmux-navigation'.setup {
+            disable_when_zoomed = true, -- defaults to false
+            keybindings = {
+                left = "<C-h>",
+                down = "<C-j>",
+                up = "<C-k>",
+                right = "<C-l>",
+                last_active = "<C-\\>",
+                next = "<C-Space>",
+            }
+        }
+    end
+  }
 
-  use("folke/zen-mode.nvim")
-  use("github/copilot.vim")
-  use("eandrju/cellular-automaton.nvim")
-  use("laytan/cloak.nvim")
+  use("folke/zen-mode.nvim");
+  use("github/copilot.vim");
+  use("eandrju/cellular-automaton.nvim");
+  use("laytan/cloak.nvim");
 
 end)
 

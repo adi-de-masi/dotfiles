@@ -103,9 +103,6 @@ function aws_login() {
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# Let fnm install the right dependencies on cd
-eval "$(fnm env --use-on-cd)"
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -115,3 +112,9 @@ if [ -f '/Users/dea/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dea/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/dea/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dea/google-cloud-sdk/completion.zsh.inc'; fi
+
+# fnm
+export PATH="/home/adi/.local/share/fnm:$PATH"
+eval "`fnm env`"
+# Let fnm install the right dependencies on cd
+eval "$(fnm env --use-on-cd)"
