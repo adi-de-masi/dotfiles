@@ -2,7 +2,7 @@
 	name = Adi De Masi
 	email = adi.demasi@homegate.ch
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 	autocrlf = input
 [color]
