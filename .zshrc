@@ -41,7 +41,7 @@ bindkey -M viins '^r' history-incremental-pattern-search-backward
 bindkey -M vicmd '^r' history-incremental-pattern-search-backward
 
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/Users/adrianodemasi/bin:/Users/adrianodemasi/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/adrianodemasi/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:/Users/adrianodemasi/bin:/opt/apache/apache-maven-3.0.3//bin:/Users/adrianodemasi/Documents/downloads/java/play-2.1.1
+export PATH=/opt/local/bin:/opt/local/sbin:~/bin:~/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/MacGPG2/bin:~/bin:/opt/apache/apache-maven-3.0.3//bin:~/Documents/downloads/java/play-2.1.1
 export NODE_PATH="/usr/local/lib/node_modules"
 export PATH=$NODE_PATH:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
