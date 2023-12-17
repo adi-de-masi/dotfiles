@@ -1,21 +1,14 @@
 [user]
 	name = Adi De Masi
-	email = adi.demasi@homegate.ch
+	email = adi.demasi@gmail.com
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
 	autocrlf = input
 [color]
 	ui = auto
-[merge]
-	tool = vimdiff
 [push]
 	default = simple
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	autoSetupRemote = true
 [pull]
 	rebase = true

@@ -55,6 +55,7 @@ export GRAILS_HOME=/Users/dea/bin/grails/grails-2.2.3
 export PATH=$GRAILS_HOME/bin:$PATH
 export PATH=/Users/dea/bin:$PATH
 export PATH=/Users/dea/Library/Python/3.8/bin:$PATH
+export PATH=$PATH:/opt/homebrew/Cellar/postgresql@16/16.1/bin
 export MANPATH=/opt/local/share/man:$MANPATH
 export M2_HOME=/opt/apache-maven-3.5.0/
 export M2=$M2_HOME/bin
@@ -118,3 +119,4 @@ export PATH="/home/adi/.local/share/fnm:$PATH"
 eval "`fnm env`"
 # Let fnm install the right dependencies on cd
 eval "$(fnm env --use-on-cd)"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
