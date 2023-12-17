@@ -13,7 +13,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 --lvim.colorscheme = "lunar"
 --lvim.colorscheme = "desert"
-lvim.colorscheme = "tokyonight-night"
+lvim.colorscheme = "tokyonight"
 lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -191,18 +191,37 @@ lvim.builtin.treesitter.highlight.enable = true
 -- }
 --
 
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { command = "eslint", filetypes = { "typescript", "typescriptreact" } }
-}
+require("null-ls").setup({
+  debug = true,
+})
 
+local linters = require "lvim.lsp.null-ls.linters"
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
+formatters.setup({
   {
-    command = "prettier",
-    filetypes = { "typescript", "typescriptreact" },
+    command = "eslint",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "vue"
+    },
   },
-}
+})
+
+linters.setup({
+  {
+    command = "eslint",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "vue",
+    },
+  },
+})
 
 local code_actions = require "lvim.lsp.null-ls.code_actions"
 code_actions.setup {
@@ -252,12 +271,7 @@ lvim.plugins = {
   },
 
   {
-    "ThePrimeagen/harpoon",
-    init = function()
-      require("harpoon").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
+    "ThePrimeagen/harpoon"
   },
 
   {
