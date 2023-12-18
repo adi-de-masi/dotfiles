@@ -19,7 +19,9 @@ do
   pid=${pids[idx++]}
   pids+=( ${children[pid]-} )
 done
+echo "pids=${pids[@]}"
+echo `ps -o state=,comm= -p "${pids[@]}" | grep -iE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?l?vim?x?)(diff)?$'`
 
 # Check whether any child pids are vim
-ps -o state=,comm= -p "${pids[@]}" | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'
+ps -o state=,comm= -p "${pids[@]}" | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?l?vim?x?)(diff)?$'
 exit $?
