@@ -6,3 +6,4 @@
 --   command = "tabdo wincmd =",
 -- })
 vim.g.mapleader = ","
+vim.g.vscode_snippets_path = "~/.config/lvim/snippets/my-snippets"
