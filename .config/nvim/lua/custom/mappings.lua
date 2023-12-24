@@ -3,25 +3,25 @@ local M = {}
 
 M.disabled = {
   n = {
-      ["<leader>h"] = "",
+    ["<leader>h"] = "",
     -- required to get NvimTmuxNavigation to work :(
-      ["<C-h>"] = "",
-      ["<C-j>"] = "",
-      ["<C-k>"] = "",
-      ["<C-l>"] = "",
-      ["<C-s>"] = "",
-      ["<leader>wa"] = "",
-      ["<leader>wr"] = "",
-      ["<leader>wl"] = "",
-      ["<leader>wb"] = "",
-      ["<leader>wk"] = "",
-      ["<leader>wK"] = "",
-      ["<leader>fm"] = "",
-      ["<leader>ra"] = "",
-      ["<leader>ca"] = "",
-      ["<leader>ld"] = "",
-      ["<leader>lf"] = "",
-  }
+    ["<C-h>"] = "",
+    ["<C-j>"] = "",
+    ["<C-k>"] = "",
+    ["<C-l>"] = "",
+    ["<C-s>"] = "",
+    ["<leader>wa"] = "",
+    ["<leader>wr"] = "",
+    ["<leader>wl"] = "",
+    ["<leader>wb"] = "",
+    ["<leader>wk"] = "",
+    ["<leader>wK"] = "",
+    ["<leader>fm"] = "",
+    ["<leader>ra"] = "",
+    ["<leader>ca"] = "",
+    ["<leader>ld"] = "",
+    ["<leader>lf"] = "",
+  },
 }
 
 M.general = {
@@ -57,10 +57,23 @@ M.general = {
       "Floating diagnostic",
     },
     ["<leader>lI"] = { "<cmd> Mason <CR>", "Mason Info" },
+    ["<leader>h"] = { "<cmd> nohlsearch <CR>", "Stop Highlighting" },
+    ["<A-j>"] = { "<cmd> m .+1<CR>==", "Move line down" },
+    ["<A-k>"] = { "<cmd> m .-2<CR>==", "Move line up" },
+    ["X"] = { ":lua require('nvchad.tabufline').closeOtherBufs() <CR>", "Close other buffers" },
+    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "start LazyGit" }
   },
   v = {
     [">"] = { ">gv", "indent" },
-    [",y"] = { "\"*y", "Yank to clipboard"}
+    [",y"] = { '"*y', "Yank to clipboard" },
+    ["<leader>la"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "LSP code action",
+    },
+    ["<A-j>"] = { ":m '>+1<CR>gv=gv", "Move selected block down" },
+    ["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move selected block up" },
   },
 }
 

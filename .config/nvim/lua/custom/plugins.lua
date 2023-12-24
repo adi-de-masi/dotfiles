@@ -135,6 +135,15 @@ local plugins = {
     end
   },
 
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = "LazyGit",
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
