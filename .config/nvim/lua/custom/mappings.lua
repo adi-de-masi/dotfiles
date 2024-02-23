@@ -21,6 +21,8 @@ M.disabled = {
     ["<leader>ca"] = "",
     ["<leader>ld"] = "",
     ["<leader>lf"] = "",
+    ["<leader>q"] = "",
+    ["<leader>x"] = "",
   },
 }
 
@@ -28,6 +30,12 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>w"] = { "<cmd> w <CR>", "write file", opts = { nowait = true } },
+    ["<leader>c"] = {
+      function()
+        require("nvchad.tabufline").close_buffer()
+      end,
+      "Close buffer",
+    },
     ["<leader>m"] = { "<cmd> MarkdownPreview <CR>", "Markdown Preview" },
     ["<leader>zp"] = { "<cmd> Copilot panel <CR>", "Copilot Panel" },
 
@@ -61,7 +69,14 @@ M.general = {
     ["<A-j>"] = { "<cmd> m .+1<CR>==", "Move line down" },
     ["<A-k>"] = { "<cmd> m .-2<CR>==", "Move line up" },
     ["X"] = { ":lua require('nvchad.tabufline').closeOtherBufs() <CR>", "Close other buffers" },
-    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "start LazyGit" }
+    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "start LazyGit" },
+    ["<leader>lw"] = {
+      function()
+        vim.diagnostic.setloclist()
+      end,
+      "Diagnostic setloclist",
+    },
+    ["<leader>x"] = { ":%!jq . <CR>" },
   },
   v = {
     [">"] = { ">gv", "indent" },
