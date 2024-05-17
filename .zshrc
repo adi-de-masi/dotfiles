@@ -51,8 +51,6 @@ export PATH=/Users/dea/Documents/downloads/java/play/activator-1.2.2-minimal:$PA
 export PATH=/Library/PostgreSQL/9.3/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export GROOVY_HOME=/usr/local/Cellar/groovy/2.1.1/libexec
-export GRAILS_HOME=/Users/dea/bin/grails/grails-2.2.3
-export PATH=$GRAILS_HOME/bin:$PATH
 export PATH=/Users/dea/bin:$PATH
 export PATH=/Users/dea/Library/Python/3.8/bin:$PATH
 export PATH=$PATH:/opt/homebrew/Cellar/postgresql@16/16.1/bin
@@ -120,3 +118,5 @@ eval "`fnm env`"
 # Let fnm install the right dependencies on cd
 eval "$(fnm env --use-on-cd)"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+#export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
