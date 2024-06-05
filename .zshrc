@@ -71,6 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git asdf zsh-vi-mode)
+setopt HIST_IGNORE_SPACE
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias lg=lazygit
+alias tmux=' tmux'
 
 # fnm
 export PATH="/Users/adidemasi/Library/Application Support/fnm:$PATH"
