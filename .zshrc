@@ -72,6 +72,10 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git asdf zsh-vi-mode)
 setopt HIST_IGNORE_SPACE
+disable_history_exec() {
+  setopt LOCAL_OPTIONS NO_HISTORY
+  "$@"
+}
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +111,8 @@ alias tmux=' tmux'
 
 # fnm
 export PATH="/Users/adidemasi/Library/Application Support/fnm:$PATH"
+export PATH="/Users/adidemasi/bin:$PATH"
 eval "`fnm env`"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
