@@ -106,8 +106,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-alias lg=lazygit
+# I configure lazygit 
+alias lg='lazygit --use-config-file ~/.config/lazygit/config.yml'
 alias tmux=' tmux'
+alias python=python3
 
 # fnm
 export PATH="/Users/adidemasi/Library/Application Support/fnm:$PATH"
