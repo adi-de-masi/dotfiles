@@ -50,7 +50,9 @@ local plugins = {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
   {
     "alexghergh/nvim-tmux-navigation",
@@ -65,20 +67,27 @@ local plugins = {
           right = "<C-l>",
           last_active = "<C-\\>",
           next = "<C-Space>",
-        }
+        },
       }
-    end
+    end,
   },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require("copilot").setup({
+      require("copilot").setup {
         suggestion = { enabled = false },
         panel = { enabled = false },
-      })
+      }
     end,
+  },
+  { "onsails/lspkind.nvim",
+    config = true
+  },
+  {
+    "axkirillov/hbac.nvim",
+    config = true,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -89,50 +98,62 @@ local plugins = {
           require("copilot_cmp").setup()
         end,
       },
+      { "onsails/lspkind.nvim" }
     },
     opts = {
       sources = {
         { name = "nvim_lsp", group_index = 2 },
-        { name = "copilot",  group_index = 2 },
-        { name = "luasnip",  group_index = 2 },
-        { name = "buffer",   group_index = 2 },
+        { name = "copilot", group_index = 2 },
+        { name = "luasnip", group_index = 2 },
+        { name = "buffer", group_index = 2 },
         { name = "nvim_lua", group_index = 2 },
-        { name = "path",     group_index = 2 },
+        { name = "path", group_index = 2 },
       },
+      formatting = {
+        format = function(entry, vim_item)
+            local lspkind = require("lspkind")
+            return lspkind.cmp_format({
+              menu = "",
+              mode = "symbol",
+              max_width = 50,
+              symbol_map = { Copilot = "" },
+            })(entry, vim_item)
+          end,
+      }
     },
   },
 
   {
-		"folke/which-key.nvim",
-		config = function(_, opts)
-			dofile(vim.g.base46_cache .. "whichkey")
-			require("which-key").setup(opts)
-			local present, wk = pcall(require, "which-key")
-			if not present then
-				return
-			end
-			wk.register({
-				-- add group
-				["<leader>"] = {
-					f = { name = "+find" },
-					l = { name = "+lsp" },
-				},
-			})
-		end,
-		setup = function()
-			require("core.utils").load_mappings("whichkey")
-		end,
-	},
+    "folke/which-key.nvim",
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "whichkey")
+      require("which-key").setup(opts)
+      local present, wk = pcall(require, "which-key")
+      if not present then
+        return
+      end
+      wk.register {
+        -- add group
+        ["<leader>"] = {
+          f = { name = "+find" },
+          l = { name = "+lsp" },
+        },
+      }
+    end,
+    setup = function()
+      require("core.utils").load_mappings "whichkey"
+    end,
+  },
 
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
 
   {
