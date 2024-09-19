@@ -17,3 +17,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff]
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft --color always $LOCAL $REMOTE

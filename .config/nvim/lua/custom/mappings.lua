@@ -29,7 +29,7 @@ M.disabled = {
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>w"] = { "<cmd> w <CR>", "write file", opts = { nowait = true } },
+["<leader>w"] = { "<cmd> w <CR>", "write file", opts = { nowait = true }    },
     ["<leader>c"] = {
       function()
         require("nvchad.tabufline").close_buffer()
@@ -76,7 +76,7 @@ M.general = {
       end,
       "Diagnostic setloclist",
     },
-    ["<leader>x"] = { ":%!jq . <CR>" },
+    ["<leader>x"] = { ":%!jq . <CR>", "format json using jq" },
   },
   v = {
     [">"] = { ">gv", "indent" },
