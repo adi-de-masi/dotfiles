@@ -2,7 +2,6 @@ require "nvchad.mappings"
 
 -- add yours here
 --
--- local nomap = vim.keymap.del
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -13,7 +12,7 @@ map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected block down" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected block up" })
 map("v", "<leader>y", '"*y', { desc = "Yank to clipboard" })
 
-map("n", "<leader>s", ":w", { desc = "alias to :w"})
+map("n", "<leader>s", ":w <CR>", { desc = "alias to :w"})
 map("n", "<leader>lf",
   function()
     vim.lsp.buf.format { async = true }
@@ -26,3 +25,4 @@ map("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { silent = true })
 map("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { silent = true })
 map("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", { silent = true })
 map("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNavigateNext<CR>", { silent = true })
+map("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", { silent = true })
