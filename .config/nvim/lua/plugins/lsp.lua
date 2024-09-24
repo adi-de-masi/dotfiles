@@ -80,8 +80,8 @@ return {
         -- if LPS couldn't trigger rename on the symbol, clear the autocmd
         vim.defer_fn(function()
           -- the cmdId is not nil only if the LSP failed to rename
+          vim.api.nvim_del_autocmd(cmdId)
           if cmdId then
-            vim.api.nvim_del_autocmd(cmdId)
           end
         end, 500)
       end, bufoptsWithDesc("Rename symbol"))
@@ -144,5 +144,6 @@ return {
         },
       })
     end
+    lspconfig["marksman"].setup({})
   end,
 }
