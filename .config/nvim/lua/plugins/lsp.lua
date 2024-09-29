@@ -86,14 +86,14 @@ return {
         end, 500)
       end, bufoptsWithDesc("Rename symbol"))
       vim.keymap.set("n", "<leader>lw",
-        function ()
+        function()
           vim.diagnostic.setloclist()
         end,
         { desc = "Diagnostic setloclist" }
       )
       vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufoptsWithDesc("Run code action"))
       vim.keymap.set("n", "gr", vim.lsp.buf.references, bufoptsWithDesc("references"))
-      -- vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufoptsWithDesc())
+      --vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufoptsWithDesc("Format using LSP"))
     end
 
     -- setting autocompletion for nvim-cmp
