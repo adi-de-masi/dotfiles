@@ -1,4 +1,28 @@
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+-- Prints custom log statements to a separate file named nvim.log
+function Log_to_nvim_file(msg)
+  local log_file = vim.fn.stdpath "log" .. "/nvim.log"
+
+  -- Get the current time with milliseconds
+  local seconds, microseconds = vim.loop.gettimeofday()
+  local milliseconds = math.floor(microseconds / 1000)
+  local timestamp = os.date("%Y-%m-%d %H:%M:%S", seconds) .. string.format(".%03d", milliseconds)
+
+  -- Open the log file in append mode
+  local file = io.open(log_file, "a")
+  if file then
+    file:write(string.format("[%s] %s\n", timestamp, msg)) -- Write message with timestamp
+    file:close()
+    -- print("Log message written: " .. msg)
+  else
+    print("Failed to open log file: " .. log_file)
+  end
+end
+
+-- Example usage
+Log_to_nvim_file "\r\n"
+Log_to_nvim_file "init.lua, hello"
+
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 vim.g.mapleader = ","
 vim.g.vscode_snippets_path = "~/.config/lvim/snippets/my-snippets"
 
@@ -18,17 +42,24 @@ local lazy_config = require "configs.lazy"
 require("lazy").setup({
   {
     "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
+    lazy = true,
     import = "nvchad.plugins",
   },
 
   { import = "plugins" },
+  {
+    "neovim/nvim-lspconfig",
+    event = "BufReadPre", -- Load LSP only when opening a file
+  },
 }, lazy_config)
+Log_to_nvim_file "lazy setup done"
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "syntax")
 dofile(vim.g.base46_cache .. "statusline")
+dofile(vim.g.base46_cache .. "dap")
+dofile(vim.g.base46_cache .. "cmp")
 
 require "options"
 require "nvchad.autocmds"
@@ -36,3 +67,4 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+Log_to_nvim_file "init.lua, bye"

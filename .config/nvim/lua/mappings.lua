@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+vim.keymap.del("n", "<leader>b")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -22,4 +23,18 @@ map("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { silent = true })
 map("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", { silent = true })
 map("n", "<leader>m", "<Cmd>MarkdownPreview<CR>", { silent = true })
 map("n", "<leader>gg", "<Cmd> LazyGit <CR>", { desc = "start LazyGit" })
+
+map("n", "<leader>f", " Run/Debug")
+map("n", "<leader>f", "󰈞 Find")
+map("n", "<leader>l", " Lsp")
+map("n", "<leader>t", " Telescope")
+map("n", "<leader>o", " Obsidian")
+map("n", "<leader>os", "<Cmd>ObsidianSearch<CR>", { silent = true })
+map("n", "<leader>ob", "<Cmd>ObsidianBacklink<CR>", { silent = true })
+map("n", "<leader>ot", "<Cmd>ObsidianToday<CR>", { silent = true })
+map("n", "<leader>od", "<Cmd>ObsidianDailies<CR>", { silent = true })
+map("n", "<leader>oq", "<Cmd>ObsidianQuickSwitch<CR>", { silent = true })
+map("n", "<leader>on", "<Cmd>ObsidianNew<CR>", { silent = true })
+
+map("n", "<leader>bdl", "require('nvchad.tabufline').closeBufs_at_direction('left')")
 map("n", "X", ":only<CR>", { desc = "Close other panes" })
