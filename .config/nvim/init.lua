@@ -38,20 +38,45 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
 
--- load plugins
-require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = true,
-    import = "nvchad.plugins",
-  },
+-- if we're running the second brain, change the config and open the search window
+if vim.env.IS_SECOND_BRAIN_PROCESS then
+  require("lazy").setup({
+    {
+      "NvChad/NvChad",
+      lazy = true,
+      import = "nvchad.plugins",
+    },
 
-  { import = "plugins" },
-  {
-    "neovim/nvim-lspconfig",
-    event = "BufReadPre", -- Load LSP only when opening a file
-  },
-}, lazy_config)
+    { import = "plugins" },
+    {
+      "neovim/nvim-lspconfig",
+      event = "BufReadPre", -- Load LSP only when opening a file
+    },
+    {
+      "epwalsh/obsidian.nvim",
+      lazy = false,
+    },
+  }, lazy_config)
+  vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+      vim.cmd "ObsidianSearch"
+    end,
+  })
+else
+  require("lazy").setup({
+    {
+      "NvChad/NvChad",
+      lazy = true,
+      import = "nvchad.plugins",
+    },
+
+    { import = "plugins" },
+    {
+      "neovim/nvim-lspconfig",
+      event = "BufReadPre", -- Load LSP only when opening a file
+    },
+  }, lazy_config)
+end
 Log_to_nvim_file "lazy setup done"
 
 -- load theme

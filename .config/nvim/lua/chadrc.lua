@@ -4,8 +4,8 @@ local M = {}
 
 M.base46 = {
   -- theme = "gruvbox",
-  theme = "vscode_dark",
-  transparency = true,
+  theme = "decay",
+  transparency = false,
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -21,13 +21,13 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
-  theme = "vscode_dark", -- default theme
+  theme = "decay", -- default theme
   transparency = false,
 
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+    style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
     format_colors = {
       tailwind = true, -- will work for css lsp too
       icon = "󱓻",

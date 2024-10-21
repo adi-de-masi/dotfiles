@@ -1,7 +1,9 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
-vim.keymap.del("n", "<leader>b")
+local unmap = vim.keymap.del
+
+unmap("n", "<leader>b")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
