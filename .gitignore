@@ -4,6 +4,7 @@ code/
 .oh-my-zsh/
 .zcomp*
 .local/
+.mozilla/
 .npm/
 .myconf/
 .zhistory
