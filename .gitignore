@@ -1,0 +1,10 @@
+code/
+.cache/
+.ssh/
+.oh-my-zsh/
+.zcomp*
+.local/
+.npm/
+.myconf/
+.zhistory
+.zsh_history

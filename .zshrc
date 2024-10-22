@@ -118,3 +118,10 @@ eval "`fnm env`"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# fnm
+FNM_PATH="/home/dmad/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/dmad/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
