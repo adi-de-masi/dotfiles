@@ -34,6 +34,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "19d257cf889f79f4022163c3fbb5e08639077bd8" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "telescope.nvim": { "branch": "master", "commit": "df534c3042572fb958586facd02841e10186707c" },
+  "trouble.nvim": { "branch": "main", "commit": "2f3b537f2207ce32f4459f9d56746ee013b5e01b" },
   "ui": { "branch": "v3.0", "commit": "81f5ff0fb2ce60cc3b2cfc9df928751c2ac4f7e9" },
   "volt": { "branch": "main", "commit": "229b4f1bc865c866227dd0e2ecda11ab6ec2c8cc" },
   "vscode-js-debug": { "branch": "main", "commit": "2249345ba43984d62a161bbe3b3bef02f8ff45e2" },

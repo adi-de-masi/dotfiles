@@ -1,4 +1,7 @@
+Documents/
+Downloads/
 code/
+dconf/
 .cache/
 .ssh/
 .oh-my-zsh/
@@ -9,3 +12,5 @@ code/
 .myconf/
 .zhistory
 .zsh_history
+.config/zsh/.zcompdump-dmad-tux-5.9
+.config/zsh/.zcompdump-dmad-tux-5.9.zwc

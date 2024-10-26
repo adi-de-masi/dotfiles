@@ -4,6 +4,7 @@ local map = vim.keymap.set
 local unmap = vim.keymap.del
 
 unmap("n", "<leader>b")
+-- unmap("n", "<leader>t")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -29,7 +30,7 @@ map("n", "<leader>gg", "<Cmd> LazyGit <CR>", { desc = "start LazyGit" })
 map("n", "<leader>f", " Run/Debug")
 map("n", "<leader>f", "󰈞 Find")
 map("n", "<leader>l", " Lsp")
-map("n", "<leader>t", " Telescope")
+map("n", "<leader>t", " Trouble")
 map("n", "<leader>o", " Obsidian")
 map("n", "<leader>os", "<Cmd>ObsidianSearch<CR>", { silent = true })
 map("n", "<leader>ob", "<Cmd>ObsidianBacklink<CR>", { silent = true })
