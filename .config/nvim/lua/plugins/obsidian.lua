@@ -21,7 +21,7 @@ return {
     workspaces = {
       {
         name = "work",
-        path = "/Users/adidemasi/AdisObsidianVault",
+        path = "/home/dmad/Documents/AdisObsidianSyncVault",
       },
     },
   },
