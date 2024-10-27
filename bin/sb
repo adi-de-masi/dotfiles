@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export IS_SECOND_BRAIN_PROCESS=true; 
+export TODOIST_API_KEY"7eb5038451159a667185b6716d3486c3a926538f"
+nvim -c "set conceallevel=2"
