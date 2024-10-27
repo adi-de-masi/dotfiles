@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim=nvim
+alias vim="export TODOIST_API_KEY=$(cat ~/.config/todoist/api_token); nvim"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 # I configure lazygit 
 alias lg='lazygit --use-config-file ~/.config/lazygit/config.yml'
