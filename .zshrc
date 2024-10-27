@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git asdf zsh-vi-mode)
-setopt HIST_IGNORE_SPACE
+setopt histignorespace
 disable_history_exec() {
   setopt LOCAL_OPTIONS NO_HISTORY
   "$@"
@@ -111,10 +111,17 @@ alias lg='lazygit --use-config-file ~/.config/lazygit/config.yml'
 alias tmux=' tmux'
 alias python=python3
 
-# fnm
-export PATH="/Users/adidemasi/Library/Application Support/fnm:$PATH"
-export PATH="/Users/adidemasi/bin:$PATH"
-eval "`fnm env`"
+export PATH="~/bin:$PATH"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# fnm
+FNM_PATH="~/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="~/.local/share/fnm:$PATH"
+else
+  # If we're on a mac, this works. If not, it doesn't harm.
+  export FNM_PATH="~/Library/Application Support/fnm:$PATH"
+fi
+eval "`fnm env`"

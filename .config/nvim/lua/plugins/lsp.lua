@@ -91,7 +91,7 @@ return {
       end, { desc = "Diagnostic setloclist" })
       vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufoptsWithDesc "Run code action")
       vim.keymap.set("n", "gr", vim.lsp.buf.references, bufoptsWithDesc "references")
-      --vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufoptsWithDesc("Format using LSP"))
+      -- vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufoptsWithDesc("Format using LSP"))
     end
     Log_to_nvim_file "[nvim-lspconfig] end config"
 
