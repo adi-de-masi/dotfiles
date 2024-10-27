@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 export IS_SECOND_BRAIN_PROCESS=true; 
-export TODOIST_API_KEY=$(cat ~/.config/todoist/api_token); nvim -c "set conceallevel=2"
+export TODOIST_API_KEY=$(cat ~/.config/todoist/api_token);
+nvim -c "set conceallevel=2"

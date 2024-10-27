@@ -31,6 +31,12 @@ map("n", "<leader>f", "󰈞 Find")
 map("n", "<leader>l", " Lsp")
 map("n", "<leader>t", " Telescope")
 map("n", "<leader>o", " Obsidian")
+map("n", "<leader>r", " Render Markdown")
+map("n", "<leader>rt", "<Cmd>RenderMarkdown toggle<CR>", { desc = "toggle render markdown", silent = true })
+map("n", "<leader>re", "<Cmd>RenderMarkdown expand<CR>",
+  { desc = "Increase anti-conceal margin above and below by 1", silent = true })
+map("n", "<leader>re", "<Cmd>RenderMarkdown expand<CR>",
+  { desc = "Decrease anti-conceal margin above and below by 1", silent = true })
 map("n", "<leader>os", "<Cmd>ObsidianSearch<CR>", { silent = true })
 map("n", "<leader>ob", "<Cmd>ObsidianBacklink<CR>", { silent = true })
 map("n", "<leader>ot", "<Cmd>ObsidianToday<CR>", { silent = true })

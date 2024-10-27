@@ -46,12 +46,7 @@ if vim.env.IS_SECOND_BRAIN_PROCESS then
       lazy = true,
       import = "nvchad.plugins",
     },
-
     { import = "plugins" },
-    {
-      "neovim/nvim-lspconfig",
-      event = "BufReadPre", -- Load LSP only when opening a file
-    },
     {
       "epwalsh/obsidian.nvim",
       lazy = false,
@@ -71,13 +66,12 @@ else
     },
 
     { import = "plugins" },
-    {
-      "neovim/nvim-lspconfig",
-      event = "BufReadPre", -- Load LSP only when opening a file
-    },
   }, lazy_config)
 end
+
 Log_to_nvim_file "lazy setup done"
+
+require('render-markdown').enable()
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
