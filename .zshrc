@@ -111,17 +111,21 @@ alias lg='lazygit --use-config-file ~/.config/lazygit/config.yml'
 alias tmux=' tmux'
 alias python=python3
 
-export PATH="~/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # fnm
-FNM_PATH="~/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="~/.local/share/fnm:$PATH"
+  export PATH="$HOME/.local/share/fnm:$PATH"
+  eval "`fnm env`"
 else
   # If we're on a mac, this works. If not, it doesn't harm.
-  export FNM_PATH="~/Library/Application Support/fnm:$PATH"
+  if [ -d "$FNM_PATH" ]; then
+    export PATH="~/Library/Application Support/fnm:$PATH"
+    eval "`fnm env`"
+  fi
 fi
-eval "`fnm env`"
+
