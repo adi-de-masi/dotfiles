@@ -5,8 +5,9 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "lua", "typescript", "markdown" }
+local servers = { "html", "cssls", "lua_ls", "typescript", "markdown", "jsonls" }
 local nvlsp = require "nvchad.configs.lspconfig"
+--Enable (broadcasting) snippet capability for completion
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do

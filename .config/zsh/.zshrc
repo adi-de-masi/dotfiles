@@ -70,7 +70,13 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+. /opt/asdf-vm/asdf.sh
+plugins=(git asdf zsh-vi-mode)
+setopt histignorespace
+disable_history_exec() {
+  setopt LOCAL_OPTIONS NO_HISTORY
+  "$@"
+}
 
 source $ZSH/oh-my-zsh.sh
 
