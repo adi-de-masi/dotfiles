@@ -116,6 +116,16 @@ export PATH="$HOME/bin:$PATH"
 source <(fzf --zsh)
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# csvkit
+# The "examples" directory has been installed to:
+#   /opt/homebrew/share/awscli/examples
+# 
+# zsh completions and functions have been installed to:
+#   /opt/homebrew/share/zsh/site-functions
+
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+
 # fnm
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
@@ -129,3 +139,4 @@ else
   fi
 fi
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
