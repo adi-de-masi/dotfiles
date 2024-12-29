@@ -30,13 +30,22 @@ map("n", "<leader>f", " Run/Debug")
 map("n", "<leader>f", "󰈞 Find")
 map("n", "<leader>l", " Lsp")
 map("n", "<leader>t", " Telescope or  Trouble")
+map("n", "<leader>tr", "<Cmd>Telescope resume<CR>")
 map("n", "<leader>o", " Obsidian")
 map("n", "<leader>r", " Render Markdown")
 map("n", "<leader>rt", "<Cmd>RenderMarkdown toggle<CR>", { desc = "toggle render markdown", silent = true })
-map("n", "<leader>re", "<Cmd>RenderMarkdown expand<CR>",
-  { desc = "Increase anti-conceal margin above and below by 1", silent = true })
-map("n", "<leader>re", "<Cmd>RenderMarkdown expand<CR>",
-  { desc = "Decrease anti-conceal margin above and below by 1", silent = true })
+map(
+  "n",
+  "<leader>re",
+  "<Cmd>RenderMarkdown expand<CR>",
+  { desc = "Increase anti-conceal margin above and below by 1", silent = true }
+)
+map(
+  "n",
+  "<leader>re",
+  "<Cmd>RenderMarkdown expand<CR>",
+  { desc = "Decrease anti-conceal margin above and below by 1", silent = true }
+)
 map("n", "<leader>os", "<Cmd>ObsidianSearch<CR>", { silent = true })
 map("n", "<leader>ob", "<Cmd>ObsidianBacklink<CR>", { silent = true })
 map("n", "<leader>ot", "<Cmd>ObsidianToday<CR>", { silent = true })
@@ -44,5 +53,6 @@ map("n", "<leader>od", "<Cmd>ObsidianDailies<CR>", { silent = true })
 map("n", "<leader>oq", "<Cmd>ObsidianQuickSwitch<CR>", { silent = true })
 map("n", "<leader>on", "<Cmd>ObsidianNew<CR>", { silent = true })
 
-map("n", "<leader>bdl", "require('nvchad.tabufline').closeBufs_at_direction('left')")
+map("n", "<leader>bdl", "require('nvchad.tabufline').closeBufs_at_direction('right')")
+map("n", "<leader>bdh", "require('nvchad.tabufline').closeBufs_at_direction('left')")
 map("n", "X", ":only<CR>", { desc = "Close other panes" })

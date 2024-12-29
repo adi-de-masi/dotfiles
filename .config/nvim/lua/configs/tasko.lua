@@ -1,0 +1,1 @@
+require("tasko").setup()

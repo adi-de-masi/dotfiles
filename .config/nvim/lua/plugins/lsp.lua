@@ -99,17 +99,14 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     local lspconfig = require "lspconfig"
-    Log_to_nvim_file "[LSP]: beginning lsp setup"
     lspconfig["gopls"].setup {
       capabilities = capabilities,
       on_attach = on_attach,
     }
-    Log_to_nvim_file "[LSP]: gopls done"
     lspconfig["ts_ls"].setup {
       capabilities = capabilities,
       on_attach = on_attach,
     }
-    Log_to_nvim_file "[LSP]: tl_ls done"
     lspconfig["lua_ls"].setup {
       capabilities = capabilities,
       on_attach = on_attach,

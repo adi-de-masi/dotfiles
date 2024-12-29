@@ -4,7 +4,7 @@ local M = {}
 
 M.base46 = {
   -- theme = "gruvbox",
-  theme = "decay",
+  theme = "material-darker",
   transparency = false,
 
   -- hl_override = {
@@ -21,7 +21,7 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
-  theme = "decay", -- default theme
+  theme = "material-darker", -- default theme
   transparency = false,
 
   cmp = {
