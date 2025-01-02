@@ -104,12 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="export TODOIST_API_KEY=$(cat ~/.config/todoist/api_token); nvim"
+alias vim="export TODOIST_API_KEY=$(cat ~/.config/todoist/api_token); kvim"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 # I configure lazygit 
 alias lg='lazygit --use-config-file ~/.config/lazygit/config.yml'
 alias tmux=' tmux'
 alias python=python3
+alias kvim='NVIM_APPNAME="nvim-kickstart" nvim'
 
 export PATH="$HOME/bin:$PATH"
 # Set up fzf key bindings and fuzzy completion
