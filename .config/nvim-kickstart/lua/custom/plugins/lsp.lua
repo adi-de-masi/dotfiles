@@ -136,7 +136,6 @@ return {
         },
       }
     end
-    print 'ficken'
     lspconfig['marksman'].setup {}
   end,
 }
