@@ -221,6 +221,8 @@ return {
         'stylua', -- Used to format Lua code
         'eslint_d',
         'node-debug2-adapter',
+        'typescript-language-server',
+        'lua-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

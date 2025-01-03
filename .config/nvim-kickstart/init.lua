@@ -114,9 +114,6 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
 -- Custom plugin configurations
 local bufferline = require 'bufferline'
 bufferline.setup {
@@ -142,11 +139,6 @@ require('nvim-tree').setup {
   },
 }
 
-if vim.env.IS_SECOND_BRAIN_PROCESS then
-  require('lazy').setup {
-    {
-      'epwalsh/obsidian.nvim',
-      lazy = false,
-    },
-  }
-end
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
+
