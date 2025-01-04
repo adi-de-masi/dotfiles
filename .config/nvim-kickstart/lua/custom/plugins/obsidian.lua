@@ -23,7 +23,7 @@ return {
     },
     templates = {
       folder = '~/AdisObsidianVault/Templates',
-      date_format = '%D.%M.%Y',
+      date_format = '%d.%m.%Y',
       time_format = '%H:%M',
     },
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
