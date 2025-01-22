@@ -24,8 +24,9 @@ map('n', '<C-\\>', '<Cmd>NvimTmuxNavigateLastActive<CR>', { silent = true })
 map('n', '<leader>m', '<Cmd>MarkdownPreview<CR>', { silent = true })
 map('n', '<leader>gg', '<Cmd> LazyGit <CR>', { desc = 'start LazyGit' })
 
-map('n', '<leader>f', ' Run/Debug')
+map('n', '<leader>d', ' Run/Debug')
 map('n', '<leader>f', '󰈞 Find')
+map('n', '<leader>fe', '<Cmd>Telescope emoji<CR>', { desc = '😃 [F]ind [E]moji' })
 map('n', '<leader>l', ' Lsp')
 
 map('n', '<leader>t', ' Telescope or  Trouble')
