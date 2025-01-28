@@ -28,6 +28,16 @@ return {
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, optsWithDesc 'previous diagnostics')
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, optsWithDesc 'next diagnostics')
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'sh',
+      callback = function()
+        vim.lsp.start {
+          name = 'bash-language-server',
+          cmd = { 'bash-language-server', 'start' },
+        }
+      end,
+    })
+
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
     local on_attach = function(client, bufnr)
