@@ -223,7 +223,7 @@ return {
         'eslint_d',
         'node-debug2-adapter',
         'typescript-language-server',
-        'lua-language-server',
+        'lua_ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
